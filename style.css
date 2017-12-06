@@ -1,0 +1,54 @@
+#manescreen {
+	height: 95vh;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	font-size: 36px;
+}
+
+#bd {
+	height: 86vh;
+	overflow:auto;
+}
+
+#info {
+    height: 9%;
+    padding: 5px
+}
+
+#ot,#do {
+    width: 49%;
+    height: 100%;
+    text-align: center;
+    font-size:30px;
+}
+
+#s1 , #s2 ,#s3 ,#s4,#s5,#s6 , #s7 ,#s8 ,#s9,#s10,#s11,#s12,#s13,#s14 {
+	border-top:1px solid black;
+	padding: 5px;
+}
+
+#C1,#C2,#C3,#C4,#C5,#C6,#C7,#C8,#C9,#C10,#C11,#C12,#C13,#C14 {
+    line-height: px;
+}
+
+#li1,#li2,#li3,#li4,#li5,#li6,#li7,#li8,#li9,#li10,#li11,#li12,#li13,#li14 {
+    font-size: 20px;
+}
+
+#in {
+	font-size: 15px;
+	width: 500px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#time1,#time2,#time3,#time4,#time5,#time6,#time7,#time8,#time9,#time10,#time11,#time12,#time13,#time14 {
+	border: 1px solid black;
+	font-size:18px;
+	border-radius: 3px;
+	width: 250px;
+	text-align: center;
+}
