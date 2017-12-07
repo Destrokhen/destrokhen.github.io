@@ -5,7 +5,7 @@ $(document).ready()
 		time = ['#time1','#time2',"#time3","#time4",'#time5','#time6','#time7','#time8','#time9','#time10','#time11','#time12','#time13','#time14'];
 		sd = ['#C1','#C2','#C3','#C4','#C5','#C6','#C7','#C8','#C9','#C10','#C11','#C12','#C13','#C14'];
 		dd = ['#D1','#D2','#D3','#D4','#D5','#D6','#D7','#D8','#D9','#D10','#D11','#D12','#D13','#D14']; 
-		help = {0:"24",1:"25",2:"26",3:"27",4:"28",5:"29",6:"30"};
+		help = {0:"24",1:"25",2:"26",3:"27",4:"28",5:"29",6:"30",7:"31",8:"31",9:"31"};
         lil = ["#li1","#li2","#li3","#li4","#li5","#li6","#li7","#li8","#li9","#li10","#li11","#li12","#li13","#li14",];
 		
 		function ti(rasp,zapolnin,per)
@@ -31,15 +31,19 @@ $(document).ready()
 						var ho = 0,mo = 0;
 						hou = parseInt(hou);
 						min = parseInt(min);
-						if (hou >= 0 && hou <= 6) {if(houn >= 0 && houn <= 6){ho = parseInt(help[hou]) - parseInt(help [houn]);} else {ho = parseInt(help[hou]) - houn;}} else {ho = parseInt(hou) - houn;}
+						if (hou >= 0 && hou <= 9) {if(houn >= 0 && houn <= 9){ho = parseInt(help[hou]) - parseInt(help[houn]);} else {ho = parseInt(help[hou]) - houn;}} else {ho = parseInt(hou) - houn;}
 						if (ho > 0 && min - minn < 0){ho -=1;mo = (min+60) - minn;} else {mo = min - minn;}
-						if (ho < 0 && mo < 0) {$(time[hel]).css("background-color","#FCD9D9");$(time[hel]).text("----------");$(time[hel]).css("color","#C1BDBD");}
-						else if (ho == 0 && mo > 0) {$(time[hel]).text("Через: "+mo.toString()+" Мин");$(time[hel]).css("background-color","#FFFFFF");$(time[hel]).css("color","black");}
-							else {$(time[hel]).text("Через: "+ho.toString()+" ч "+mo.toString()+" Мин");$(time[hel]).css("background-color","#FFFFFF");$(time[hel]).css("color","black");}
-						if (ho == 0 && mo == 0) {$(time[hel]).css("background-color","#FCD9D9");$(time[hel]).css("color","#FFF5F5");$(time[hel]).text("Сейчас");}
-						if (ho == 0 && mo <= 10) {$(time[hel]).css("background-color","firebrick");$(time[hel]).css("color","#FFF5F5");}
+                        console.log(ho + ' '+mo);
+                        if (ho <= 0 && mo < 0){$(time[hel]).css("background-color","#F8F8F2");$(time[hel]).text("----------");$(time[hel]).css("color","#C1BDBD");}
+                        else if (ho == 0 && mo == 0) {$(time[hel]).css("background-color","#F71818");$(time[hel]).css("color","#FFF5F5");$(time[hel]).text("Сейчас");}
+                        else if (ho == 0 && mo <= 10) {$(time[hel]).css("background-color","#F71818");$(time[hel]).css("color","#FFF5F5");$(time[hel]).text("Через: "+mo.toString()+" Мин");}
+                        else if (ho == 0) {$(time[hel]).css("color","black");$(time[hel]).text("Через: "+mo.toString()+" Мин");}
+                        else if (ho > 0 && mo == 0) {$(time[hel]).css("color","black");$(time[hel]).text("Через: "+ho.toString()+" ч ");}
+                        else {$(time[hel]).text("Через: "+ho.toString()+" ч "+mo.toString()+" Мин");$(time[hel]).css("background-color","#FFFFFF");$(time[hel]).css("color","black");}
 						hel++;
 						zapolnin++;
+                        if (per == false) {var xal = 2;} else {var xal = 1;}
+                        if (zapolnin+2 == rasp.length+xal) {zapolnin = 0;}
 						tizs(rasp,zapolnin,per);
 					}
 		}
@@ -52,6 +56,7 @@ $(document).ready()
 						hou = "",min = "";
 						var i = 0;
 						if (ra[0] == "*"){i++;}
+                        else if (ra[0] == '*' && ra[1] == "*") {i+=2;}
 						while (ra[i] != ":")
 								{hou += ra[i];i++;}
 						i++;
@@ -84,7 +89,8 @@ $(document).ready()
 						if (per == true) {var ra = rasp[zapolnin].t;} else {var ra = rasp[zapolnin].ot;}
 						hou = "",min = "";
 						var i = 0;
-						if (ra[0] == "*"){i++;timeu = 50;}else {timeu = 20;}
+                        if (ra[0] == "*" && ra[1] == "*") {i+=2;timeu = 50;}
+						else if (ra[0] == "*"){i++;timeu = 50;} else {timeu = 20;}
 						while (ra[i] != ":")
 						{hou += ra[i];i++;}
 						i++;
@@ -93,7 +99,8 @@ $(document).ready()
 						hour = parseInt(hou);
 						mint = parseInt(min);
 						mint += timeu;
-						if (mint >= 60) {hour += 1; mint -= 60;}
+						if (mint >= 60) {if (hour == 23){hour = 0;} else {hour += 1;} mint -= 60;}
+                    
 				}
 				
 				var hel = 0;
@@ -109,6 +116,8 @@ $(document).ready()
 							else {$(dd[hel]).text(hour.toString()+":"+mint.toString());}
 						hel++;
 						zapolnin++;
+                        if (per == false) {var xal = 2;} else {var xal = 1;}
+                        if (zapolnin+2 == rasp.length+xal) {zapolnin = 0;}
 						tiz(rasp,zapolnin);
 					}
 				
@@ -138,7 +147,7 @@ $(document).ready()
 			var rasp = XLSX.utils.sheet_to_row_object_array(worksheet);
 			
             var per = true;
-            var zapolnin = 0;
+            var zapolnin = 1;
             setInterval(function()
                         {
                  jQuery('button').bind('click',function ()
