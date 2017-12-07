@@ -33,7 +33,6 @@ $(document).ready()
 						min = parseInt(min);
 						if (hou >= 0 && hou <= 9) {if(houn >= 0 && houn <= 9){ho = parseInt(help[hou]) - parseInt(help[houn]);} else {ho = parseInt(help[hou]) - houn;}} else {ho = parseInt(hou) - houn;}
 						if (ho > 0 && min - minn < 0){ho -=1;mo = (min+60) - minn;} else {mo = min - minn;}
-                        console.log(ho + ' '+mo);
                         if (ho <= 0 && mo < 0){$(time[hel]).css("background-color","#F8F8F2");$(time[hel]).text("----------");$(time[hel]).css("color","#C1BDBD");}
                         else if (ho == 0 && mo == 0) {$(time[hel]).css("background-color","#F71818");$(time[hel]).css("color","#FFF5F5");$(time[hel]).text("Сейчас");}
                         else if (ho == 0 && mo <= 10) {$(time[hel]).css("background-color","#F71818");$(time[hel]).css("color","#FFF5F5");$(time[hel]).text("Через: "+mo.toString()+" Мин");}
