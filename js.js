@@ -34,7 +34,7 @@ $(document).ready()
 						if (hou >= 0 && hou <= 6) {if(houn >= 0 && houn <= 6){ho = parseInt(help[hou]) - parseInt(help [houn]);} else {ho = parseInt(help[hou]) - houn;}} else {ho = parseInt(hou) - houn;}
 						if (ho > 0 && min - minn < 0){ho -=1;mo = (min+60) - minn;} else {mo = min - minn;}
 						if (ho < 0 && mo < 0) {$(time[hel]).css("background-color","#FCD9D9");$(time[hel]).text("----------");$(time[hel]).css("color","#C1BDBD");}
-						else if (ho == 0) {$(time[hel]).text("Через: "+mo.toString()+" Мин");$(time[hel]).css("background-color","#FFFFFF");$(time[hel]).css("color","black");}
+						else if (ho == 0 && mo > 0) {$(time[hel]).text("Через: "+mo.toString()+" Мин");$(time[hel]).css("background-color","#FFFFFF");$(time[hel]).css("color","black");}
 							else {$(time[hel]).text("Через: "+ho.toString()+" ч "+mo.toString()+" Мин");$(time[hel]).css("background-color","#FFFFFF");$(time[hel]).css("color","black");}
 						if (ho == 0 && mo == 0) {$(time[hel]).css("background-color","#FCD9D9");$(time[hel]).css("color","#FFF5F5");$(time[hel]).text("Сейчас");}
 						if (ho == 0 && mo <= 10) {$(time[hel]).css("background-color","firebrick");$(time[hel]).css("color","#FFF5F5");}
