@@ -5,6 +5,7 @@
 	margin-right: auto;
 	border: 1px solid black;
 	font-size: 36px;
+    min-height: 70vh;
 }
 
 #bd {
@@ -44,6 +45,14 @@
     margin-top: 5px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#info {
+    background-color: #E6E6E6;
+}
+
+#s1,#s3,#s5,#s7,#s9,#s11,#s13 {
+    background-color:#F5F5F5;
 }
 
 #time1,#time2,#time3,#time4,#time5,#time6,#time7,#time8,#time9,#time10,#time11,#time12,#time13,#time14 {
