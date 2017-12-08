@@ -147,7 +147,7 @@ $(document).ready()
 			var rasp = XLSX.utils.sheet_to_row_object_array(worksheet);
 			
             var per = true;
-            var zapolnin = 1;
+            var zapolnin = 0;
             setInterval(function()
                         {
                  jQuery('button').bind('click',function ()
