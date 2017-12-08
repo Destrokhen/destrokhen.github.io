@@ -22,7 +22,6 @@ $(document).ready()
 						i++;
 						while (i != ra.length)
 								{min += ra[i];i++;}
-                        console.log(hou+" "+min);
 				}
 				
 				var hel = 0;
