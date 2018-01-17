@@ -1,13 +1,17 @@
 $(document).ready()
 { 
-
 		help1 = ['#s1','#s2','#s3','#s4','#s5','#s6','#s7','#s8','#s9','#s10','#s11','#s12','#s13','#s14'];
 		time = ['#time1','#time2',"#time3","#time4",'#time5','#time6','#time7','#time8','#time9','#time10','#time11','#time12','#time13','#time14'];
 		sd = ['#C1','#C2','#C3','#C4','#C5','#C6','#C7','#C8','#C9','#C10','#C11','#C12','#C13','#C14'];
 		dd = ['#D1','#D2','#D3','#D4','#D5','#D6','#D7','#D8','#D9','#D10','#D11','#D12','#D13','#D14']; 
 		help = {0:"24",1:"25",2:"26",3:"27",4:"28",5:"29",6:"30",7:"31",8:"32",9:"33"};
         lil = ["#li1","#li2","#li3","#li4","#li5","#li6","#li7","#li8","#li9","#li10","#li11","#li12","#li13","#li14",];
-		
+        
+        function elect(x1,x2)
+        {
+            $("#Screen2").append('<iframe id="elke" frameborder="0" src="https://rasp.yandex.ru/informers/search/?fromId='+x1+'&amp;toId='+x2+'&amp;size=25&amp;color=1&amp;type=suburban"></iframe>');
+        }
+    
 		function ti(rasp,zapolnin,per)
 		{
 				function tizs(rasp,zapolnin,per)
@@ -149,17 +153,36 @@ $(document).ready()
 			
             var per = true;
             var zapolnin = 0;
+            var poslet = true;
+            $('#ot').css("border","1px solid red");
             setInterval(function()
                         {
-                 jQuery('button').bind('click',function ()
+                 jQuery('.buus').bind('click',function ()
                     {
                         var id = $(this).attr('id');
+                        if(id == "do"){$('#ot').css("border","1px solid black");$('#do').css("border","1px solid red");} else {$('#do').css("border","1px solid black");$('#ot').css("border","1px solid red");}
                         if (id == 'ot') {per = true;}
                         else if (id == "do" ){per = false;}
                         zapolnin = cheak(rasp,zapolnin,per);
                         zap(rasp,zapolnin,per);
-                 });
-            },1000);
+                    });
+                        },1000);
+                        $('.elc').bind('click',function ()
+                            {
+                                if(poslet){
+                                    var text = $(this).attr('id');
+                                    x1 = text;
+                                    poslet = false;
+                                    $("#ss5").css("opacity","100");
+                                    $("#choise").text("Выберите станцию прибытия");
+                                } else {
+                                    var text = $(this).attr('id');
+                                    x2 = text;
+                                    if (text == "ss5" || text == x1) {$("#ss5").css("opacity","0");$("#choise").text("Выберите станцию отправления");poslet = true;if(text != "ss5"){$("#eror").append('<p>Не выбирайте одну и туже станцию</p>');}} else {$(".non").remove();$("#choises").remove();$("#eror").remove();elect(x1,x2);};
+                                }
+                                
+                                
+                            });
 			zapolnin = cheak(rasp,zapolnin,per);
 			var xl = zapolnin;
 			zap(rasp,zapolnin,per);
