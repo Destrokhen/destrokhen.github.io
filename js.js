@@ -10,6 +10,7 @@ $(document).ready()
         function elect(x1,x2)
         {
             $("#Screen2").append('<iframe id="elke" frameborder="0" src="https://rasp.yandex.ru/informers/search/?fromId='+x1+'&amp;toId='+x2+'&amp;size=25&amp;color=1&amp;type=suburban"></iframe>');
+            $("")
         }
     
 		function ti(rasp,zapolnin,per)
@@ -174,11 +175,11 @@ $(document).ready()
                                     x1 = text;
                                     poslet = false;
                                     $("#ss5").css("opacity","100");
-                                    $("#choise").text("Выберите станцию прибытия");
+                                    $("#choises").text("Выберите станцию прибытия");
                                 } else {
                                     var text = $(this).attr('id');
                                     x2 = text;
-                                    if (text == "ss5" || text == x1) {$("#ss5").css("opacity","0");$("#choise").text("Выберите станцию отправления");poslet = true;if(text != "ss5"){$("#eror").append('<p>Не выбирайте одну и туже станцию</p>');}} else {$(".non").remove();$("#choises").remove();$("#eror").remove();elect(x1,x2);};
+                                    if (text == "ss5" || text == x1) {$("#ss5").css("opacity","0");$("#choises").text("Выберите станцию отправления");poslet = true;if(text != "ss5"){$("#eror").append('<p>Не выбирайте одну и туже станцию</p>');}} else {$(".non").remove();$("#choises").remove();$("#eror").remove();elect(x1,x2);};
                                 }
                                 
                                 
