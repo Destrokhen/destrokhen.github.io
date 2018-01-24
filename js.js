@@ -10,7 +10,7 @@ $(document).ready()
         function elect(x1,x2)
         {
             $("#Screen2").append('<iframe id="elke" frameborder="0" src="https://rasp.yandex.ru/informers/search/?fromId='+x1+'&amp;toId='+x2+'&amp;size=25&amp;color=1&amp;type=suburban"></iframe>');
-            $("#infoe").append('<l id = "choises">Расписание загружено</l>');
+            $('#choises').text("Расписание готово");
         }
     
 		function ti(rasp,zapolnin,per)
@@ -68,7 +68,6 @@ $(document).ready()
 						i++;
 						while (i != ra.length)
 								{min += ra[i];i++;}
-						
 				}
 				
 				var end = false;
@@ -156,39 +155,36 @@ $(document).ready()
             var zapolnin = 0;
             var poslet = true;
             $('#ot').css("border","1px solid red");
+            var helppr = true;
             setInterval(function()
                         {
                  jQuery('.buus').bind('click',function ()
                     {
                         var id = $(this).attr('id');
                         if(id == "do"){$('#ot').css("border","1px solid black");$('#do').css("border","1px solid red");} else {$('#do').css("border","1px solid black");$('#ot').css("border","1px solid red");}
-                        if (id == 'ot') {per = true;}
-                        else if (id == "do" ){per = false;}
+                        if (id == 'ot') {per = true;if(helppr == true){x1 = 's9600721';$('#choises').text("Выберите станцию прибытия (C Одинцово)");}}
+                        else if (id == "do"){per = false;if (helppr){x2 = 's9600721';$('#choises').text("Выберите станцию отправления (До Одинцово)");}}
                         zapolnin = cheak(rasp,zapolnin,per);
                         zap(rasp,zapolnin,per);
                     });
                         },1000);
                         $('.elc').bind('click',function ()
                             {
-                                if(poslet){
-                                    var text = $(this).attr('id');
-                                    x1 = text;
-                                    poslet = false;
-                                    $("#ss5").css("opacity","100");
-                                    $("#choises").text("Выберите станцию прибытия");
-                                } else {
-                                    var text = $(this).attr('id');
-                                    x2 = text;
-                                    if (text == "ss5" || text == x1) {$("#ss5").css("opacity","0");$("#choises").text("Выберите станцию отправления");poslet = true;if(text != "ss5"){$("#eror").append('<p>Не выбирайте одну и туже станцию</p>');}} else {$(".non").remove();$("#choises").remove();$("#eror").remove();elect(x1,x2);poslet = true;};
-                                }
-                                
-                                
+                                if (per == true){x1 = "s9600721";x2 = $(this).attr('id');} else {x2 = 's9600721';x1 = $(this).attr('id');}
+                                $(".non").remove();
+                                elect(x1,x2);
+                                helppr = false;
                             });
+            var cll = true;
+            $('.Settings').bind('click',function()
+            {
+                if (cll == true){$('#manescreen').append("<div id ='set'><p>Настройки</p><p><input id = 'checkbox' type='checkbox'>Круто, что нажал , но тут ничего нет(нажми опять на Шестерёнку)</p>");cll = false;} else {$('#set').remove();cll = true;}
+            });
 			zapolnin = cheak(rasp,zapolnin,per);
 			var xl = zapolnin;
 			zap(rasp,zapolnin,per);
 			setInterval(function(){ti(rasp,xl,per);},100);
-			
+			$("#checkbox").click(function(){if ($(this).is(':checked')){alert("asdasda");}})
 		}
 		oReq.send();
 		

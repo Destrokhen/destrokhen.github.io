@@ -1,3 +1,19 @@
+#body {
+    width: 100vh;
+    height: 100vh;
+}
+
+#set {
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top:25px;
+    right: 25%;
+    left: 30%;
+    background-color: #D6D6D6;
+    z-index: 1;
+}
+
 #manescreen {
     box-shadow: 4px 4px rgba(220, 220, 220,0.5);
     background-color: #EBEBEB;
@@ -8,6 +24,16 @@
     display:flex;
 	font-size: 36px;
     min-height: 68vh;
+    z-index: 0;
+}
+
+#Settings {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    
 }
 
 #bus {
@@ -32,6 +58,7 @@
     opacity:0;display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 0px;
 }
 
 #erors {
@@ -53,7 +80,7 @@
 #choises {
     margin-top: auto;
     margin-bottom: auto;
-    font-size: 30px;
+    font-size: 28px;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
