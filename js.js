@@ -162,7 +162,7 @@ $(document).ready()
                     {
                         var id = $(this).attr('id');
                         if(id == "do"){$('#ot').css("border","1px solid black");$('#do').css("border","1px solid red");} else {$('#do').css("border","1px solid black");$('#ot').css("border","1px solid red");}
-                        if (id == 'ot') {per = true;if(helppr == true){x1 = 's9600721';$('#choises').text("Выберите станцию прибытия (C Одинцово)");}}
+                        if (id == 'ot') {per = true;if(helppr == true){x1 = 's9600721';$('#choises').text("Выберите станцию прибытия (От Одинцово)");}}
                         else if (id == "do"){per = false;if (helppr){x2 = 's9600721';$('#choises').text("Выберите станцию отправления (До Одинцово)");}}
                         zapolnin = cheak(rasp,zapolnin,per);
                         zap(rasp,zapolnin,per);
