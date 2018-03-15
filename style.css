@@ -1,0 +1,363 @@
+body {
+    background-color: #EBEBEB;
+}
+
+@media only screen and (max-width : 768px)
+{   
+    #manescreen {
+    background-color: #EBEBEB;
+	width: 100%;
+    height: 90%;
+    display:block;
+	font-size: 36px;
+    animation: Moves 0.7s ease-out ;
+    }
+    
+    #Screen1 {
+    width: 45%;
+    animation: Moves 0.7s ease-out ;
+    }
+    
+    #Screen2 {
+    width: 55%;
+    animation: Moves 0.7s ease-out ;
+}
+
+#Elci{
+    font-size: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 50%;
+}
+
+#ss5 {
+    background-color:bisque;
+    opacity:0;display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#elke {
+    overflow:auto;
+    border: 0;
+    width:100%;
+    height: 85%; 
+}
+
+#choises {
+    margin: 0;
+    font-size: 19px;
+}
+
+#about {
+    text-align: center;
+    height: auto;
+    width: 100%;
+    font-size: 10px;
+    margin: auto;
+    background-color: #EBEBEB;
+    animation: Moves 0.7s ease-out;
+}
+
+.elc{
+    margin-top: 10px;
+    font-size: 20px;
+    width: auto;
+    text-align: center;
+    margin-left:5px;
+    border: 0;
+}
+
+.elc:hover {
+    transition:all 0.5s ease-out;
+    background-color: floralwhite;
+}
+
+.elc:active {
+}
+
+
+#bd {
+	height: 80vh;
+	overflow:auto;
+    margin-bottom: 20px;
+}
+#info {
+    height: 10%;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    background-color: #E6E6E6;
+}
+#infoe 
+{
+    margin: 0;
+    height: 10%;
+    padding: 5px;
+    background-color: #E6E6E6;
+}
+
+#ot,#do {
+    width: 49%;
+    height: 100%;
+    text-align: center;
+    font-size:19px;
+    border: 0;
+    transition: 0.7s;
+}
+
+#ot:hover,#do:hover
+{
+    transition-property: all;
+    transition-duration:0.7s;
+    background-color: floralwhite;
+}
+
+#ot:active,#do:active
+{
+    transition-property: all;
+    transition-duration:0.7s;
+    background-color:aliceblue;
+}
+
+#s1 , #s2 ,#s3 ,#s4,#s5,#s6 , #s7 ,#s8 ,#s9,#s10,#s11,#s12,#s13,#s14 {
+	padding: 5px;
+}
+
+#C1,#C2,#C3,#C4,#C5,#C6,#C7,#C8,#C9,#C10,#C11,#C12,#C13,#C14 {
+    margin-left: 10px;
+    font-size: 20px;
+    margin: 0;
+}
+
+#D1,#D2,#D3,#D4,#D5,#D6,#D7,#D8,#D9,#D10,#D11,#D12,#D13,#D14 {
+    font-size: 20px;
+    margin: 0;
+}
+
+
+#li1,#li2,#li3,#li4,#li5,#li6,#li7,#li8,#li9,#li10,#li11,#li12,#li13,#li14 {
+    font-size: 15px;
+    margin-left: 10px;
+    display: block;
+}
+
+#s1,#s3,#s5,#s7,#s9,#s11,#s13 {
+    background-color:#F5F5F5;
+}
+
+    #as 
+    {
+      font-size: 20px;   
+    }
+    
+#time1,#time2,#time3,#time4,#time5,#time6,#time7,#time8,#time9,#time10,#time11,#time12,#time13,#time14 {
+	font-size:20px;
+    margin: 0;
+    margin-left: 10px;
+    transition-property:all;
+    transition-duration:0.5s;
+    transition-timing-function:ease-out;
+}
+
+#bus {
+    margin: 0;
+    font-size: 15px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
+
+    @keyframes Moves { 
+        0%{ opacity: 0.01;}
+        25%{ opacity: 0.02;}
+        50%{ opacity: 0.03;}
+        75%{ opacity: 0.04;}
+    }
+
+@media only screen and (min-width:768px)
+{
+    #manescreen {
+    background-color: #EBEBEB;
+	height: 90vh;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+    display:block;
+	font-size: 36px;
+    min-height: 68vh;
+    z-index: 0;
+    animation: Moves 0.7s ease-out ;
+    }
+    
+    #Screen1 {
+    width: 45%;
+    animation: Moves 0.7s ease-out ;
+    }
+    
+    #Screen2 {
+    width: 55%;
+    animation: Moves 0.7s ease-out ;
+}
+
+#Elci{
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 50%;
+}
+
+#ss5 {
+    background-color:bisque;
+    opacity:0;display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 0px;
+}
+
+#elke {
+    overflow:scroll;
+    border: 0;
+    width:100%;
+    height: 100%;
+}
+
+#choises {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 28px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#about {
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    background-color: #EBEBEB;
+    animation: Moves 0.7s ease-out;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+.elc{
+    margin-top: 20px;
+    font-size: 36px;
+    width: 250px;
+    text-align: center;
+    margin-left:5px;
+    border: 0;
+}
+
+.elc:hover {
+    transition:all 0.5s ease-out;
+    background-color: floralwhite;
+}
+
+.elc:active {
+}
+
+
+#bd {
+	height: 77vh;
+	overflow:auto;
+    margin-top: 5px;
+}
+#info  {
+    height: 9%;
+    padding: 5px;
+    display: flex;
+    text-align: center;
+    background-color: #E6E6E6;
+}
+#infoe 
+{
+    margin: 0;
+    height: 10%;
+    padding: 5px;
+    background-color: #E6E6E6;
+}
+
+#ot,#do {
+    width: 49%;
+    height: 100%;
+    text-align: center;
+    font-size:30px;
+    border: 0;
+    transition: 0.7s;
+}
+
+#ot:hover,#do:hover
+{
+    transition-property: all;
+    transition-duration:0.7s;
+    background-color: floralwhite;
+}
+
+#ot:active,#do:active
+{
+    transition-property: all;
+    transition-duration:0.7s;
+    background-color:aliceblue;
+}
+
+#s1 , #s2 ,#s3 ,#s4,#s5,#s6 , #s7 ,#s8 ,#s9,#s10,#s11,#s12,#s13,#s14 {
+	padding: 5px;
+}
+
+#C1,#C2,#C3,#C4,#C5,#C6,#C7,#C8,#C9,#C10,#C11,#C12,#C13,#C14 {
+    margin-left: 30px;
+}
+
+#li1,#li2,#li3,#li4,#li5,#li6,#li7,#li8,#li9,#li10,#li11,#li12,#li13,#li14 {
+    font-size: 20px;
+    margin-left: 20px;
+    display: block;
+}
+
+#in {
+	font-size: 15px;
+	width: 500px;
+	text-align: center;
+    margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#s1,#s3,#s5,#s7,#s9,#s11,#s13 {
+    background-color:#F5F5F5;
+}
+
+#time1,#time2,#time3,#time4,#time5,#time6,#time7,#time8,#time9,#time10,#time11,#time12,#time13,#time14 {
+	font-size:25px;
+    margin: 0;
+    margin-left: 20px;
+    transition-property:all;
+    transition-duration:0.5s;
+    transition-timing-function:ease-out;
+}
+
+#bus {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+}
+
+#InfoName {
+    display: flex;
+    width: 100%;
+}
+
+#Main {
+    display: flex;
+}
