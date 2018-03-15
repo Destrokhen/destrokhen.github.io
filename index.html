@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width-device-width , initial-scale=1.0"/>
   <title>ВШЭ Автобусы/Электрички</title>
   <link href = "style.css" rel="stylesheet" type="text/css"/>
   <script src="jquery-3.2.1.min.js"></script>
@@ -9,44 +10,47 @@
     <script src="js.js"></script>
 </head>
 <body>
-  <div id ="manescreen">
-    <div id = "Screen1">
-        <p id = "bus">Автобусы</p>
-        <div id = "info">
-          <button class="buus" id = "ot">Из Дубков</button>
-          <button class="buus" id = "do">До Дубков</button>
-        </div>
-        <div id ="bd">
-            <div id ="s1"><p id = "time1"></p><l id ="C1"></l> <l id = "as"> ~</l> <l id = "D1"></l><l id="li1"></l></div>
-          <div id ="s2"><p id = "time2">-</p><l id ="C2"></l> <l id = "as"> ~</l> <l id = "D2"></l><l id="li2"></l></div>
-          <div id ="s3"><p id = "time3">-</p><l id ="C3"></l> <l id = "as"> ~</l> <l id = "D3"></l><l id="li3"></l></div>
-          <div id ="s4"><p id = "time4">-</p><l id ="C4"></l> <l id = "as"> ~</l> <l id = "D4"></l><l id="li4"></l></div>
-          <div id ="s5"><p id = "time5">-</p><l id ="C5"></l> <l id = "as"> ~</l> <l id = "D5"></l><l id="li5"></l></div>
-          <div id ="s6"><p id = "time6">-</p><l id ="C6"></l> <l id = "as"> ~</l> <l id = "D6"></l><l id="li6"></l></div>
-          <div id ="s7"><p id = "time7">-</p><l id ="C7"></l> <l id = "as"> ~</l> <l id = "D7"></l><l id="li7"></l></div>
-          <div id ="s8"><p id = "time8">-</p><l id ="C8"></l> <l id = "as"> ~</l> <l id = "D8"></l><l id="li8"></l></div>
-          <div id ="s9"><p id = "time9">-</p><l id ="C9"></l> <l id = "as"> ~</l> <l id = "D9"></l><l id="li9"></l></div>
-          <div id ="s10"><p id = "time10">-</p><l id ="C10"></l> <l id = "as"> ~</l> <l id = "D10"></l><l id="li10"></l></div>
-          <div id ="s11"><p id = "time11">-</p><l id ="C11"></l> <l id = "as"> ~</l> <l id = "D11"></l><l id="li11"></l></div>
-          <div id ="s12"><p id = "time12">-</p><l id ="C12"></l> <l id = "as"> ~</l> <l id = "D12"></l><l id="li12"></l></div>
-          <div id ="s13"><p id = "time13">-</p><l id ="C13"></l> <l id = "as"> ~</l> <l id = "D13"></l><l id="li13"></l></div>
-          <div id ="s14"><p id = "time14">-</p><l id ="C14"></l> <l id = "as"> ~</l> <l id = "D14"></l><l id="li14"></l></div>
+<div id ="manescreen">
+   <div id= "InfoName">
+       <p id = "bus">АВТОБУСЫ</p>
+       <p id = "Elci">Электрички</p>
+    </div>
+    <div id ="Main">
+        <div id = "Screen1">
+            <div id = "info">
+              <button class="buus" id = "ot">На Москву</button>
+              <button class="buus" id = "do">С Москвы</button>
+            </div>
+            <div id ="bd">
+              <div id ="s1"><p id = "time1"></p><l id ="C1"></l> <l id = "as"> ~</l> <l id = "D1"></l><l id="li1"></l></div>
+              <div id ="s2"><p id = "time2">-</p><l id ="C2"></l> <l id = "as"> ~</l> <l id = "D2"></l><l id="li2"></l></div>
+              <div id ="s3"><p id = "time3">-</p><l id ="C3"></l> <l id = "as"> ~</l> <l id = "D3"></l><l id="li3"></l></div>
+              <div id ="s4"><p id = "time4">-</p><l id ="C4"></l> <l id = "as"> ~</l> <l id = "D4"></l><l id="li4"></l></div>
+              <div id ="s5"><p id = "time5">-</p><l id ="C5"></l> <l id = "as"> ~</l> <l id = "D5"></l><l id="li5"></l></div>
+              <div id ="s6"><p id = "time6">-</p><l id ="C6"></l> <l id = "as"> ~</l> <l id = "D6"></l><l id="li6"></l></div>
+              <div id ="s7"><p id = "time7">-</p><l id ="C7"></l> <l id = "as"> ~</l> <l id = "D7"></l><l id="li7"></l></div>
+              <div id ="s8"><p id = "time8">-</p><l id ="C8"></l> <l id = "as"> ~</l> <l id = "D8"></l><l id="li8"></l></div>
+              <div id ="s9"><p id = "time9">-</p><l id ="C9"></l> <l id = "as"> ~</l> <l id = "D9"></l><l id="li9"></l></div>
+              <div id ="s10"><p id = "time10">-</p><l id ="C10"></l> <l id = "as"> ~</l> <l id = "D10"></l><l id="li10"></l></div>
+              <div id ="s11"><p id = "time11">-</p><l id ="C11"></l> <l id = "as"> ~</l> <l id = "D11"></l><l id="li11"></l></div>
+              <div id ="s12"><p id = "time12">-</p><l id ="C12"></l> <l id = "as"> ~</l> <l id = "D12"></l><l id="li12"></l></div>
+              <div id ="s13"><p id = "time13">-</p><l id ="C13"></l> <l id = "as"> ~</l> <l id = "D13"></l><l id="li13"></l></div>
+              <div id ="s14"><p id = "time14">-</p><l id ="C14"></l> <l id = "as"> ~</l> <l id = "D14"></l><l id="li14"></l></div>
+            </div>
+        </div>    
+        <div id = "Screen2">
+            <div id = "infoe">
+                <p id = "choises">Выберите станцию прибытия (От Одинцово)</p>
+            </div>
+            <div class = "non">
+                <button class ="elc" id = "s9601728" >Кунцево</button>
+                <button class ="elc" id = "s9600821" >Фили</button>
+                <button class ="elc" id = "s9601666" >Беговая</button>
+                <button class ="elc" id = "s2000006" >Белорусский вокзал</button>
+            </div>
         </div>
     </div>
-    <div id = "Screen2">
-        <l id = "bus">Электрички</l></br>
-        <div id = "infoe">
-            <l id = "choises">Выберите станцию прибытия (От Одинцово)</l>
-        </div>
-        <div class = "non">
-            <button class ="elc" id = "s9601728" >Кунцево</button>
-            <button class ="elc" id = "s9600821" >Фили</button>
-            <button class ="elc" id = "s9601666" >Беговая</button>
-            <button class ="elc" id = "s2000006" >Белорусский вокзал</button>
-        </div>
-    <a href="#" class ="Settings"><img id = "Settings"src="settings.png"></a>
-    </div>
-    </div>
-<div id = 'about'><l>Создатель: <a href = 'https://vk.com/id27447398'>Destrokhen</a> (Все вопросы и баги в лс) . Все права защищены (c)(hse.ru / 2018 год (v0.607))</l></div>
+    <div id = 'about'><l>Создатель: <a href = 'https://vk.com/id27447398'>Destrokhen</a> (Все вопросы и баги в лс) . Все права защищены (c)(hse.ru / 2018 год (v0.607))</l></div>
+</div>
 </body>
 </html>
