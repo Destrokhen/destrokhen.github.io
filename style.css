@@ -46,9 +46,16 @@ body {
     height: 85%; 
 }
 
+#as 
+    {
+          font-size: 20px;
+            margin: 0;
+    }
+    
 #choises {
     margin: 0;
-    font-size: 19px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #about {
@@ -80,9 +87,9 @@ body {
 
 
 #bd {
-	height: 80vh;
+	height: 77vh;
 	overflow:auto;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 #info {
     height: 10%;
@@ -103,7 +110,8 @@ body {
     width: 49%;
     height: 100%;
     text-align: center;
-    font-size:19px;
+    font-size:9px;
+    font-weight:bold;
     border: 0;
     transition: 0.7s;
 }
@@ -128,12 +136,12 @@ body {
 
 #C1,#C2,#C3,#C4,#C5,#C6,#C7,#C8,#C9,#C10,#C11,#C12,#C13,#C14 {
     margin-left: 10px;
-    font-size: 20px;
-    margin: 0;
+    font-size: 15px;
+    margin-top: 0;
 }
 
 #D1,#D2,#D3,#D4,#D5,#D6,#D7,#D8,#D9,#D10,#D11,#D12,#D13,#D14 {
-    font-size: 20px;
+    font-size: 15px;
     margin: 0;
 }
 
@@ -147,15 +155,11 @@ body {
 #s1,#s3,#s5,#s7,#s9,#s11,#s13 {
     background-color:#F5F5F5;
 }
-
-    #as 
-    {
-      font-size: 20px;   
-    }
     
 #time1,#time2,#time3,#time4,#time5,#time6,#time7,#time8,#time9,#time10,#time11,#time12,#time13,#time14 {
-	font-size:20px;
-    margin: 0;
+	font-size:15px;
+    margin-bottom: 0;
+    margin-top: 0;
     margin-left: 10px;
     transition-property:all;
     transition-duration:0.5s;
