@@ -220,6 +220,7 @@ $(document).ready()
             var poslet = true;
             var HelpBool = true;
             var zapolnin = 0;
+            var CheackBool = true;
             zapolnin = FindTime(rasp,zapolnin,ChosTravel);
             TimePlace(rasp,zapolnin,ChosTravel);
             
@@ -232,7 +233,7 @@ $(document).ready()
                             $('#ot').css("border","0");
                             $('#do').css("border","1px solid red");
                             ChosTravel = false;
-                            if (HelpBool)
+                            if (HelpBool == true && CheackBool == true)
                                 {
                                     x2 = 's9600721';
                                     $('#choises').text("Выберите станцию отправления (До Одинцово)");
@@ -242,7 +243,7 @@ $(document).ready()
                                 $('#do').css("border","0");
                                 $('#ot').css("border","1px solid red");
                                 ChosTravel = true;
-                                if (HelpBool)
+                                if (HelpBool == true && CheackBool == true)
                                 {
                                     x1 = 's9600721';
                                     $('#choises').text("Выберите станцию прибытия (От Одинцово)");
@@ -257,10 +258,12 @@ $(document).ready()
                                     {
                                         x1 = "s9600721";
                                         x2 = $(this).attr('id');
+                                        CheackBool = false;
                                     } else 
                                         {
                                             x2 = 's9600721';
                                             x1 = $(this).attr('id');
+                                            CheackBool = false;
                                         }
                                 $(".non").remove();
                                 elect(x1,x2);
