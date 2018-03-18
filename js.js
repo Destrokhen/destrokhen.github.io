@@ -4,7 +4,6 @@ $(document).ready()
 		time = ['#time1','#time2',"#time3","#time4",'#time5','#time6','#time7','#time8','#time9','#time10','#time11','#time12','#time13','#time14'];
 		TimeFist = ['#C1','#C2','#C3','#C4','#C5','#C6','#C7','#C8','#C9','#C10','#C11','#C12','#C13','#C14'];
 		TimeSecond = ['#D1','#D2','#D3','#D4','#D5','#D6','#D7','#D8','#D9','#D10','#D11','#D12','#D13','#D14']; 
-		TimeTranslet = {0:"24",1:"25",2:"26",3:"27",4:"28",5:"29",6:"30",7:"31",8:"32",9:"33"};
         TitleTravel = ["#li1","#li2","#li3","#li4","#li5","#li6","#li7","#li8","#li9","#li10","#li11","#li12","#li13","#li14",];
         
         function elect(x1,x2)
@@ -24,45 +23,77 @@ $(document).ready()
                         {
                             PointTime = rasp[zapolnin].ot;
                         }
-                    if (PointTime == "")
+                    if (PointTime == undefined)
                         {
-                            TimeSched = 20145;
-                            return TimeHelper;
+                            return undefined;
                         }
-                    var HelpPer = PointTime.split(':');
+                    else
+                        {
+                            var HelpPer = PointTime.split(':');
+                        }
                     if (HelpPer[0][0] == "*")
                         {
                             var HelpStr = HelpPer[0].split('*');
                             HelpPer[0] = HelpStr[1];
                         }
-                    if (parseInt(HelpPer[0]) >= 0 && parseInt(HelpPer[0]) <= 9)
-                        {
-                            TimeSched = parseInt(TimeTranslet[parseInt(HelpPer[0])])*60 + parseInt(HelpPer[1]);
-                        }
-                    else
-                        {
-                            TimeSched = parseInt(HelpPer[0])*60 + parseInt(HelpPer[1]);
-                        }
+                    TimeSched = parseInt(HelpPer[0])*60 + parseInt(HelpPer[1]);
                     return TimeSched;
         }
     
 		function ti(rasp,zapolnin,ChosTravel)
 		{
             var i = 0;
+            var BoolCheack = true;
             while(i != TimeCase.length)
                 {
+                    var TimeNow;
+                    TimeNow = new Date().getHours() *60+new Date().getMinutes();
                     var TimeSched = TimeHelper(rasp,zapolnin,ChosTravel);
-                    if (TimeSched > 1440)
+                    if (TimeSched == undefined)
                         {
-                            TimeSched-= 1440;
+                            zapolnin = 0;
+                            var TimeSched = TimeHelper(rasp,zapolnin,ChosTravel);
                         }
-                    var TimeNow = new Date().getHours() *60+new Date().getMinutes();
                     var TimeNeed = TimeSched - TimeNow;
                     if (TimeNeed < 0)
                         {
-                            $(time[i]).text("");
-                            $(time[i]).css("color","black");
-                            $(TimeCase[i]).css("opacity","0.5");
+                            if (TimeNeed >= -60)
+                                {
+                                    $(time[i]).text("");
+                                    $(time[i]).css("color","black");
+                                    $(TimeCase[i]).css("opacity","0.5");
+                                }
+                            else
+                                {
+                                    var Times = (1440 - TimeNow) + TimeSched;
+                                    var Min = Times % 60;
+                                    var Hour = (Times - Min)/60;
+                                    $(TimeCase[i]).css("opacity","1");
+                                    if (Hour == 0)
+                                        {
+                                            $(time[i]).text(Min.toString()+" мин");
+                                            $(time[i]).css("color","black");
+                                        }
+                                    else
+                                        {
+                                            if(Hour >= 9 && BoolCheack == true)
+                                                {
+                                                    $(TimeCase[i]).css("opacity","0.7");
+                                                    $(time[i]).text("");
+                                                    BoolCheack = false;
+                                                }
+                                            else if (BoolCheack == false)
+                                                {
+                                                    $(TimeCase[i]).css("opacity","0.001");
+                                                }
+                                            else
+                                                {
+                                                    $(time[i]).text(Hour.toString()+' ч '+Min.toString()+" мин");
+                                                    $(time[i]).css("color","black");
+                                                }
+                                        }
+                                }
+                            
                         }
                     else if (TimeNeed == 0)
                         {
@@ -88,6 +119,10 @@ $(document).ready()
                                 }
                             else
                                 {
+                                    if(Hour >= 10)
+                                        {
+                                            $(TimeCase[i]).css("opacity","0.7");
+                                        }
                                     $(time[i]).text(Hour.toString()+' ч '+Min.toString()+" мин");
                                     $(time[i]).css("color","black");
                                 }
@@ -103,17 +138,12 @@ $(document).ready()
 				while (End != true)
 						{
                             var TimeSched = TimeHelper(rasp,zapolnin,ChosTravel);
-                            if(TimeSched == 20145) 
+                            if(TimeSched == undefined) 
                                 {
-                                    End = true;
                                     zapolnin = 0;
                                     continue;
                                 }
                             var TimeNow = new Date().getHours() * 60 + new Date().getMinutes();
-                            if (TimeSched > 1440)
-                                {
-                                    TimeSched -= 1440;
-                                }
                             if (TimeSched - TimeNow < 0)
                                     {
                                         var helpInt = (TimeSched - TimeNow)
@@ -135,13 +165,44 @@ $(document).ready()
 		{
 			var timeu = 20;				
             var i = 0;
+            var One = true;
             while (i != TimeCase.length)
                 {
                     var PointTime;
                     var Find = false;
-                    if (ChosTravel == true) {PointTime = rasp[zapolnin].t;} else {PointTime = rasp[zapolnin].ot;}
-                    if (PointTime == ""){zapolnin = 0;continue;}
-                    var HelpPer = PointTime.split(':');
+                    if (ChosTravel == true)
+                        {PointTime = rasp[zapolnin].t;} 
+                    else 
+                        {PointTime = rasp[zapolnin].ot;}
+                    if (PointTime != undefined)
+                        { var HelpPer = PointTime.split(':');}
+                    else
+                        { 
+                            var DayTodays = new Date().getDay();
+                            if(DayTodays >= 1 && DayTodays <= 5)
+                                {
+                                    zapolnin = 0;
+                                    continue;
+                                }
+                            else
+                                {
+                                    if (One == true)
+                                        {
+                                            $(TitleTravel[i]).text('Рейсы закончились, приходите после 0:00');
+                                            One = false;
+                                            i++;
+                                            continue;
+                                        }
+                                    else
+                                        {
+                                            $(TitleTravel[i]).text('');
+                                            $(TimeCase[i]).css("opacity","0")
+                                            i++;
+                                            continue;
+                                        }
+                                    
+                                }
+                        }
                     if (HelpPer[0][0] == "*")
                         {
                             Find = true;
@@ -151,15 +212,7 @@ $(document).ready()
                     var Hour = HelpPer[0];
                     var Min = HelpPer[1];
                     
-                    var TimeSched;
-                    if (parseInt(Hour) >= 0 && parseInt(Hour) <= 9)
-                        {
-                            TimeSched = TimeTranslet[parseInt(Hour)]*60 + parseInt(Min);
-                        }
-                    else
-                        {
-                            TimeSched = parseInt(Hour)*60 + parseInt(Min);
-                        }
+                    var TimeSched = parseInt(HelpPer[0])*60 +parseInt(HelpPer[1]);
                     TimeSched += timeu;
                     var Min1 = TimeSched % 60;
                     var Hour1 = (TimeSched - Min1) / 60;
@@ -191,13 +244,13 @@ $(document).ready()
         var DayToday = new Date().getDay();
         if (DayToday >= 1 && DayToday <= 5 ) {URL = 'exsel_m_f.xlsx';}
         else if (DayToday == 6) {URL = 'exsel_s.xlsx';} else {URL = 'exsel_sa.xlsx';}
-		var oReq = new XMLHttpRequest();
-		oReq.open("GET", URL , true);
-		oReq.responseType = "arraybuffer";
-        // function pars
-		oReq.onload = function(e) 
+        var Pere;
+        var Parsers = new XMLHttpRequest();
+		Parsers.open("GET", URL , true);
+		Parsers.responseType = "arraybuffer";
+		Parsers.onload = function(e) 
 		{
-			var arraybuffer = oReq.response;
+			var arraybuffer = Parsers.response;
 
 			var data = new Uint8Array(arraybuffer);
 			var arr = new Array();
@@ -207,15 +260,9 @@ $(document).ready()
                 }
 			
             var bstr = arr.join("");
-
 			var workbool = XLSX.read(bstr,{type:"binary"});
-
-			var first_sheet_name = workbool.SheetNames[0];
-
-			var worksheet = workbool.Sheets[first_sheet_name];
-			var rasp = XLSX.utils.sheet_to_row_object_array(worksheet);
-			
-            // MainCod
+			var rasp = XLSX.utils.sheet_to_row_object_array(workbool.Sheets[workbool.SheetNames[0]]);
+            // --------------
             var ChosTravel = true;
             var poslet = true;
             var HelpBool = true;
@@ -268,7 +315,7 @@ $(document).ready()
                                 $(".non").remove();
                                 elect(x1,x2);
                             });
-			setInterval(function(){ti(rasp,zapolnin,ChosTravel);},100);
+			setInterval(function(){ti(rasp,zapolnin,ChosTravel);},500);
 		}
-		oReq.send();	
+        Parsers.send();
 }
